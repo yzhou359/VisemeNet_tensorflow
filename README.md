@@ -9,19 +9,14 @@
 ## Python Package
 
 + numpy
-+ pyparsing
 + scipy
 + python_speech_feature
 
 ## At test time:
 
-1). **Create a new virtual envs to test:**  
-  * conda create -n visnet python=3.5  
-  * source activate visnet  
-  * conda install numpy  
-  * pip install --ignore-installed --upgrade https://download.tensorflow.google.cn/linux/gpu/tensorflow_gpu-1.1.0-cp35-cp35m-linux_x86_64.whl  
-  * pip install pyparsing  
-  * conda install -c anaconda scipy  
+1). **Create and install required envs and packages**
+  * conda create -n visnet python=3.5
+  * pip install --ignore-installed --upgrade https://download.tensorflow.google.cn/linux/gpu/tensorflow_gpu-1.1.0-cp35-cp35m-linux_x86_64.whl
 
 2). **Download this repository to your local machine:**  
    * git clone https://github.com/yzhou359/VisemeNet_tensorflow.git  
@@ -35,7 +30,12 @@
    * put your test audio file name in file 'main_test.py', line 7. 
    * Then run command line
 
-   > python python main_test.py
+   > python main_test.py
    
    &nbsp; &nbsp; The result locates at:  
-   &nbsp; &nbsp; &nbsp; &nbsp; data/output_viseme/[your_audio_file_name]/mayaparam_viseme.txt  
+   &nbsp; &nbsp; &nbsp; &nbsp; data/output_viseme/[your_audio_file_name]/mayaparam_viseme.txt
+
+5). **JALI animation in Maya:**
+   * put your test audio file name in file 'maya_animation.py', line 4.
+   * Then run 'maya_animation.py' in Maya with JALI environment to create talking face animation automatically.
+
