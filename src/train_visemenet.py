@@ -79,7 +79,7 @@ def test(model_name, test_audio_name):
                 batch_x, batch_x_face_id, batch_x_pose, batch_y_landmark, batch_y_phoneme, batch_y_lipS, batch_y_maya_param = \
                     read_next_batch_easy_from_raw(test_wav_raw, cv_data, 'face_close', batch_idx_array, batch_size, n_steps, n_input, n_landmark,
                                          n_phoneme, n_face_id)
-                npClose = np.loadtxt(lpw_dir + 'maya_close_face.txt')
+                npClose = np.loadtxt(lpw_dir + 'saved_param/maya_close_face.txt')
                 batch_x_face_id = np.tile(npClose, (batch_x_face_id.shape[0], 1))
 
 

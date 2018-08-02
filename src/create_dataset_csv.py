@@ -7,31 +7,6 @@ from python_speech_features import logfbank, mfcc, ssc
 
 
 
-def load_filelist_from_split_list(ver, dataset_type):
-
-    """
-    Load Youtube dataset file list from data_split dir
-    :param dataset_type: choose all/train/cv/test for sub dataset
-    :return: file_list
-    """
-
-    dir = data_split_dir
-    file_list = {'landmark': [], 'phoneme': [], 'wav': []}
-
-    for key in ['landmark', 'phoneme', 'wav']:
-        txt = open(dir + dataset_type + '_' + key + '.txt')
-        lines = txt.readlines()
-        line_post = []
-        for line in lines:
-            if(is_up_sample and key == 'phoneme'):
-                line_post.append(lpw_dir + line[:-5] + '_' + str(up_sample_rate) + '.txt')
-            else:
-                line_post.append(lpw_dir + line[:-1])
-        file_list[key] = line_post
-    file_list['n'] = len(file_list['wav'])
-
-    return file_list
-
 
 def create_dataset_csv(csv_dir, test_audio_name='test_audio.wav'):
     loaded_data = dict()
@@ -128,7 +103,7 @@ def create_dataset_csv(csv_dir, test_audio_name='test_audio.wav'):
             npKey = np.concatenate((npKey, loaded_data[key][i]), axis=0)
 
         # Use saved std & mean
-        mean_std = np.loadtxt(lpw_dir + '/wav_mean_std.csv')
+        mean_std = np.loadtxt(lpw_dir + 'saved_param/wav_mean_std.csv')
         npKey_mean = mean_std[0:65]
         npKey_std = mean_std[65:130]
 
