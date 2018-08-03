@@ -10,7 +10,8 @@
 
 + numpy
 + scipy
-+ python_speech_feature
++ python_speech_features
++ matplotlib
 
 ## At test time:
 
